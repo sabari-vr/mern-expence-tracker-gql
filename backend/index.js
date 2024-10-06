@@ -89,7 +89,8 @@ app.get("*", (req, res) => {
 });
 
 // Modified server startup
-await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+const PORT = process.env.PORT || 4000;
+await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
 await connectDB();
 
-console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
