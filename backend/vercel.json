@@ -1,11 +1,10 @@
 {
-  "name": "apollo-server-vercel",
   "version": 2,
-  "scope": "saeris",
-  "functions": {
-    "api/example.ts": {
-      "maxDuration": 1,
-      "memory": 128
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
+  "routes": [
+    {
+      "src": "/graphql",
+      "dest": "/index.js"
     }
-  }
+  ]
 }
